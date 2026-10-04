@@ -75,6 +75,11 @@ const SAMPLES: Sample[] = [
     "{\"id\":\"g1\",\"timestamp\":\"2026-01-02T10:00:02.000Z\",\"type\":\"gemini\",\"content\":\"hi\",\"thoughts\":[{\"subject\":\"Plan\",\"description\":\"list\",\"timestamp\":\"2026-01-02T10:00:02.000Z\"}],\"model\":\"gemini-2.5-flash\",\"tokens\":{\"input\":100,\"output\":10,\"cached\":0,\"thoughts\":5,\"tool\":0,\"total\":115}}",
     "{\"id\":\"g1\",\"timestamp\":\"2026-01-02T10:00:02.000Z\",\"type\":\"gemini\",\"toolCalls\":[{\"id\":\"run_shell_command__call_1\",\"name\":\"run_shell_command\",\"args\":{\"command\":\"ls\"},\"result\":[{\"functionResponse\":{\"id\":\"run_shell_command__call_1\",\"name\":\"run_shell_command\",\"response\":{\"output\":\"a\"}}}],\"status\":\"success\",\"timestamp\":\"2026-01-02T10:00:03.000Z\"}]}",
   ] },
+  { h: "antigravity", kinds: "user thinking assistant tool result", tools: 1, inTok: 100, outTok: 15, cost: 0.00013125, lines: [
+    "{\"step_index\":0,\"source\":\"USER_EXPLICIT\",\"type\":\"USER_INPUT\",\"status\":\"DONE\",\"created_at\":\"2026-01-02T10:00:00.000Z\",\"content\":\"hello\"}",
+    "{\"step_index\":1,\"source\":\"MODEL\",\"type\":\"PLANNER_RESPONSE\",\"status\":\"DONE\",\"created_at\":\"2026-01-02T10:00:01.000Z\",\"input_tokens\":100,\"output_tokens\":15,\"cache_read_tokens\":0,\"thinking\":\"plan\",\"content\":\"hi\",\"tool_calls\":[{\"name\":\"run_command\",\"args\":{\"CommandLine\":\"ls\"}}]}",
+    "{\"step_index\":2,\"source\":\"MODEL\",\"type\":\"GENERIC\",\"status\":\"DONE\",\"created_at\":\"2026-01-02T10:00:02.000Z\",\"content\":\"a\"}",
+  ] },
 ];
 
 // ── registry: identity, look, commands ──

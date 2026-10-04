@@ -13,9 +13,10 @@ import { pi } from "./pi.ts";
 import { opencode } from "./opencode.ts";
 import { kiro } from "./kiro.ts";
 import { gemini } from "./gemini.ts";
+import { antigravity } from "./antigravity.ts";
 
 // order = order in filters, stats rows and help
-export const HARNESSES: HarnessAdapter[] = [claude, codex, fx, pi, opencode, kiro, gemini];
+export const HARNESSES: HarnessAdapter[] = [claude, codex, fx, pi, opencode, kiro, gemini, antigravity];
 
 const byId = new Map<string, HarnessAdapter>();
 const byProc = new Map<string, string>();

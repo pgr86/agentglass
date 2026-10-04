@@ -15,10 +15,10 @@ import { projectRoot } from "./query/project.ts";
 export interface AgentHost { on: boolean; harness: string; session: string; via: string }
 // harness-specific markers first: a nested agent inherits the outer one's generic AI_AGENT (codex run from Claude Code)
 export const MARKERS: string[] = ["CLAUDECODE", "CODEX_SANDBOX", "CODEX_SANDBOX_NETWORK_DISABLED", "CODEX_CI", "CODEX_THREAD_ID", "GEMINI_CLI",
-  "PI_CODING_AGENT", "OPENCODE", "OPENCODE_SESSION_ID", "KIRO_SESSION_ID", "AI_AGENT"];
+  "PI_CODING_AGENT", "OPENCODE", "OPENCODE_SESSION_ID", "KIRO_SESSION_ID", "ANTIGRAVITY_AGENT", "ANTIGRAVITY_CONVERSATION_ID", "AI_AGENT"];
 // PI_SESSION_ID: seen in pi's shell tool env (2026-10-03), = its session file's id
-export const SESSION_VARS: string[] = ["CLAUDE_CODE_SESSION_ID", "OPENCODE_SESSION_ID", "CODEX_THREAD_ID", "KIRO_SESSION_ID", "PI_SESSION_ID"];
-const VAR_HARNESS = ["claude", "opencode", "codex", "kiro", "pi"]; // harness of SESSION_VARS[i]
+export const SESSION_VARS: string[] = ["CLAUDE_CODE_SESSION_ID", "OPENCODE_SESSION_ID", "CODEX_THREAD_ID", "KIRO_SESSION_ID", "PI_SESSION_ID", "ANTIGRAVITY_CONVERSATION_ID"];
+const VAR_HARNESS = ["claude", "opencode", "codex", "kiro", "pi", "antigravity"]; // harness of SESSION_VARS[i]
 
 function markerHarness(name: string, v: string): string {
   if (name === "CLAUDECODE") return "claude";
@@ -27,6 +27,7 @@ function markerHarness(name: string, v: string): string {
   if (name === "PI_CODING_AGENT") return "pi";
   if (name.startsWith("OPENCODE")) return "opencode";
   if (name === "KIRO_SESSION_ID") return "kiro";
+  if (name.startsWith("ANTIGRAVITY")) return "antigravity";
   if (v.startsWith("claude-code")) return "claude"; // AI_AGENT
   return v === "pi" || v === "opencode" ? v : "";
 }

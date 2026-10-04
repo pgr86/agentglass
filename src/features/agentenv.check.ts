@@ -25,6 +25,7 @@ eq("pi session id", host({ PI_CODING_AGENT: "true", AI_AGENT: "pi", PI_SESSION_I
 eq("own session var first", host({ CLAUDE_CODE_SESSION_ID: "c1", CODEX_CI: "1", CODEX_THREAD_ID: "t1" }, []), "true|codex|t1|env:CODEX_CI");
 eq("opencode", host({ OPENCODE: "1", OPENCODE_SESSION_ID: "ses_x" }, []), "true|opencode|ses_x|env:OPENCODE");
 eq("kiro", host({ KIRO_SESSION_ID: "k1" }, []), "true|kiro|k1|env:KIRO_SESSION_ID");
+eq("antigravity", host({ ANTIGRAVITY_CONVERSATION_ID: "ag1" }, []), "true|antigravity|ag1|env:ANTIGRAVITY_CONVERSATION_ID");
 eq("AGENT alone", host({ AGENT: "1" }, []), "false|||");
 eq("nothing", host({}, []), "false|||");
 eq("empty marker", host({ CLAUDECODE: "" }, []), "false|||");

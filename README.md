@@ -1,7 +1,7 @@
 # ◈ agentglass
 
 **See every coding agent on your machine — live, down to every tool call, diff and dollar.**
-One tiny native TUI for Claude Code, Codex, fx, pi, OpenCode, Kiro and Gemini CLI: browse every session you ever ran, watch the running
+One tiny native TUI for Claude Code, Codex, fx, pi, OpenCode, Kiro, Gemini CLI and Antigravity: browse every session you ever ran, watch the running
 ones think, drill into any call, see where the time and money went, and get tapped on the shoulder
 when an agent needs you.
 
@@ -23,7 +23,8 @@ in the background. Which one is stuck? Which one just rewrote your auth layer? W
 
 - **Every agent, one screen.** Claude Code (`~/.claude`), Codex (`~/.codex`),
   [fx](https://github.com/vercel-labs/fx) (`~/.fx`), [pi](https://github.com/badlogic/pi-mono) (`~/.pi`),
-  [OpenCode](https://opencode.ai), Kiro and [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`~/.gemini`)
+  [OpenCode](https://opencode.ai), Kiro, [Gemini CLI](https://github.com/google-gemini/gemini-cli) (`~/.gemini`)
+  and [Antigravity](https://antigravity.google) (`~/.gemini/antigravity-cli`)
   sessions in one searchable list. Live sessions
   come first, and all your history is there too.
 - **Live transcripts.** Open a session and it follows the log as the agent works: prompts,
@@ -863,6 +864,7 @@ export AGENTGLASS_OTLP_DIR="/tmp/ag-otlp"     # OTLP export state, lock and requ
 | ▣ **OpenCode** | `~/.local/share/opencode/opencode.db` | `service.json` daemon (v2) · process cwd (1.x) | `parent_id` | ✔ |
 | ◇ **Kiro** | `~/.kiro/sessions/cli` | `<id>.lock` pid | `parent_session_id` | ✔ |
 | ✦ **Gemini CLI** | `~/.gemini/tmp/<project>/chats` | process cwd = project root | `chats/<parent id>/` | ✔ |
+| ⟡ **Antigravity** | `~/.gemini/antigravity-cli/brain` | process cwd = session cwd | `parent_conversation_id` | ✔ |
 
 Kiro bills in credits, not tokens: set `"kiroCreditUsd"` in `~/.agentglass/prices.json` (or
 `AGENTGLASS_KIRO_CREDIT_USD`) to see its cost (tagged `plan`); without a rate its credits are listed as unpriced.
